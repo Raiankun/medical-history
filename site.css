@@ -764,3 +764,11 @@ ul.checklist input{margin-top:5px;accent-color:var(--ox)}
 .tk-works td:first-child small{display:block;color:var(--sub);font-size:11.5px}
 .tk-ref{color:var(--sub)}
 .tk-items td:not(:first-child){text-align:center}
+
+/* SDS ページ */
+.picto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:16px 0}
+.picto{margin:0;display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:start;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:12px}
+.picto svg{width:72px;height:72px;display:block}
+.picto figcaption b{display:block;font-family:var(--f-jserif);font-size:16px;font-weight:500}
+.picto figcaption small{display:block;font-size:12px;line-height:1.7;color:var(--sub);margin-top:2px}
+.sds .tbl td .num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ox);color:#fff;font-family:var(--f-latin);font-size:14px}
