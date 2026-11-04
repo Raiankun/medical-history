@@ -3,9 +3,9 @@
   --bg:#FFFCF7; --ink:#2B2826; --sub:#7A736B; --hair:#EEE7DC; --tint:#F8F2E8; --ox:#E4573D;
   --paper:var(--bg); --muted:var(--sub); --line:var(--hair); --accent:var(--ink); --accent-soft:var(--tint); --mark:var(--ox);
   --k-founder:#C2452F; --k-designer:#2B2826; --k-art:#8C6A4F; --k-place:#5E7385; --k-society:#A8A8A8;
-  --f-latin:"Bodoni Moda","Didot","Bodoni 72",serif;
-  --f-jserif:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
-  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-latin:"Bodoni 72","Didot","Georgia","Times New Roman",serif;
+  --f-jserif:"Hiragino Mincho ProN","Yu Mincho","YuMincho","MS PMincho",serif;
+  --f-body:"Hiragino Sans","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;
 }
 /* 端末のダークモードには追従せず、常に明るい配色で表示する */
 :root[data-theme="dark"]{
