@@ -13,38 +13,24 @@
 <body class="clinic">
 
 <header class="hero wrap">
-  <div class="eyebrow">Medicine & Occupational Health · 400 BC / 2026</div>
+  <div class="eyebrow">Occupational Health · 1911 / 2026</div>
   <h1>医療の系譜</h1>
-  <p>医療の成り立ちから、働く人を守る特殊健康診断の制度と条文、最新技術、薬、医療費までを図表で整理しました。</p>
+  <p>働く人を守る特殊健康診断の制度と歴史、条文を図表で整理しました。</p>
 </header>
 
 <nav class="tabs" aria-label="セクション">
   <div class="wrap" role="tablist">
-    <button role="tab" data-tab="history" aria-selected="true">医療の年表</button>
-    <button role="tab" data-tab="tokushu" aria-selected="false">特殊健診</button>
+    <button role="tab" data-tab="tokushu" aria-selected="true">特殊健診</button>
     <button role="tab" data-tab="rules" aria-selected="false">規則と条文</button>
-    <button role="tab" data-tab="tech" aria-selected="false">最新技術</button>
-    <button role="tab" data-tab="drugs" aria-selected="false">薬の知識</button>
-    <button role="tab" data-tab="cost" aria-selected="false">医療費</button>
     <button role="tab" data-tab="glossary" aria-selected="false">用語集</button>
   </div>
 </nav>
 
 <main class="wrap">
-  <p class="disclaimer">このページは学習用の一般的な情報です。診断・治療・服薬の判断や、事業場での健診の実施は、医師・薬剤師・産業医、所轄の労働基準監督署にご確認ください。制度は2026年10月時点の確認に基づきます。</p>
-
-  <!-- 医療の年表 -->
-  <section id="history" data-panel>
-    <span class="kicker">History of Medicine</span>
-    <h2>医療の成り立ち</h2>
-    <p class="lead">呪術から観察へ、観察から科学へ、そして個人に合わせた医療へ。</p>
-    <div class="eras" id="eras"></div>
-    <h3 class="sub">日本の医療制度のあゆみ</h3>
-    <div class="tbl-wrap"><table class="tbl" id="jpSystem"></table></div>
-  </section>
+  <p class="disclaimer">このページは学習用の一般的な情報です。事業場での健診の実施や判断は、産業医や所轄の労働基準監督署にご確認ください。制度は2026年10月時点の確認に基づきます。</p>
 
   <!-- 特殊健診 -->
-  <section id="tokushu" data-panel hidden>
+  <section id="tokushu" data-panel>
     <span class="kicker">Special Health Examinations</span>
     <h2>特殊健康診断を深く知る</h2>
     <a class="guide-banner" href="kenshin-guide.html"><b>資料</b>職場の健康診断ガイド：一般健診・特定業務従事者健診・特殊健診の比較から、制度史、安衛法・安衛則、有機則・特化則・じん肺法・騒音ガイドライン、実務の判断フローまで →</a>
@@ -92,51 +78,11 @@
     <div class="rulecards" id="ruleCards"></div>
   </section>
 
-  <!-- 最新技術 -->
-  <section id="tech" data-panel hidden>
-    <span class="kicker">New Technology</span>
-    <h2>医療の最新技術</h2>
-    <p class="lead">日本で実際に使われ始めた時期とあわせて整理しました。</p>
-    <div class="tbl-wrap"><table class="tbl" id="techTable"></table></div>
-  </section>
-
-  <!-- 薬の知識 -->
-  <section id="drugs" data-panel hidden>
-    <span class="kicker">Medicines</span>
-    <h2>薬の知識</h2>
-    <h3 class="sub">医薬品の分類</h3>
-    <div class="tbl-wrap"><table class="tbl" id="drugClass"></table></div>
-    <h3 class="sub">先発品・後発品と薬の値段</h3>
-    <div class="tbl-wrap"><table class="tbl" id="generic"></table></div>
-    <h3 class="sub">注意したい飲み合わせ・食べ合わせの例</h3>
-    <div class="tbl-wrap"><table class="tbl" id="interact"></table></div>
-    <p class="caption">代表的な例です。服用中の薬との組み合わせは、必ず医師・薬剤師に確認してください。</p>
-    <h3 class="sub">飲むタイミングの言葉</h3>
-    <div class="tbl-wrap"><table class="tbl" id="timing"></table></div>
-  </section>
-
-  <!-- 医療費 -->
-  <section id="cost" data-panel hidden>
-    <span class="kicker">Medical Costs</span>
-    <h2>医療費を知る</h2>
-    <div class="stats" id="stats"></div>
-    <h3 class="sub">図3　国民医療費の推移</h3>
-    <div class="chart-wrap"><svg id="costChart" class="chart" role="img" aria-label="国民医療費の推移を年度ごとの棒で示した図"></svg></div>
-    <p class="caption">出典：厚生労働省「国民医療費の概況」各年度。2022・2023年度は概況の公表値を確認済み、それ以外は各年度の概況の値を当サイトが転記したものです。</p>
-    <h3 class="sub">窓口で払う割合</h3>
-    <div class="tbl-wrap"><table class="tbl" id="share"></table></div>
-    <h3 class="sub">図4　高額療養費のしくみ</h3>
-    <div class="hcost" id="hcost"></div>
-    <div class="tbl-wrap"><table class="tbl" id="hcostTimeline"></table></div>
-    <h3 class="sub">知っておきたい制度</h3>
-    <div class="tbl-wrap"><table class="tbl" id="systems"></table></div>
-  </section>
-
   <section id="glossary" data-panel hidden>
     <span class="kicker">Glossary</span>
     <h2>用語集</h2>
     <label for="q" class="eyebrow" style="display:block;margin-bottom:6px">用語を検索</label>
-    <input id="q" class="search" type="search" placeholder="例：管理区分、作業環境測定、後発医薬品">
+    <input id="q" class="search" type="search" placeholder="例：管理区分、作業環境測定、産業医">
     <dl class="gloss" id="gloss"></dl>
   </section>
 
@@ -153,60 +99,6 @@ const W = s => s.startsWith("http") ? s : "https://en.wikipedia.org/wiki/" + enc
 const src = (s, label) => `<a class="src-a" href="${W(s)}" target="_blank" rel="noopener">${label || (s.startsWith("http") ? new URL(s).hostname.replace(/^www\.|^jsite\./, "") : "Wikipedia")} ↗</a>`;
 const EGOV = id => "https://laws.e-gov.go.jp/law/" + id;
 const OK = `<span class="chk ok">確認済</span>`, NG = `<span class="chk ng">要確認</span>`, FIX = `<span class="chk fix">訂正あり</span>`;
-
-/* ===== 医療の年表 ===== */
-const ERAS = [
- {y:"前400年ごろ–", t:"古代：観察する医学の始まり", c:"#7A9A8A",
-  s:"病気を神の罰ではなく自然の原因で説明しようとしました。体液のバランスで健康を考える「四体液説」が、その後約2000年続きます。",
-  ev:[["前400年ごろ","ヒポクラテスが観察に基づく医学を説く。「ヒポクラテスの誓い」は医の倫理の原点"],["2世紀","ガレノスが解剖と生理学を体系化"]], src:"Hippocrates"},
- {y:"9–15世紀", t:"中世：イスラム医学と病院", c:"#A88A4F",
-  s:"ギリシャの医学はイスラム世界で受け継がれ発展し、のちにヨーロッパへ戻りました。",
-  ev:[["1025","イブン・スィーナー『医学典範』。数百年にわたり教科書に"],["12世紀〜","ヨーロッパで修道院や大学による医療と医学教育"]], src:"Medicine_in_the_medieval_Islamic_world"},
- {y:"16–17世紀", t:"科学革命：人体を見る", c:"#8A5A4F",
-  s:"実際の解剖と実験で、古代の権威の誤りが正されていきます。",
-  ev:[["1543","ヴェサリウス『人体構造論』。解剖学の革新"],["1628","ハーヴェイが血液循環を証明"]], src:"Andreas_Vesalius"},
- {y:"18世紀", t:"予防と職業病の発見", c:"#5E7A9A",
-  s:"働く人の病気に目が向けられ、ワクチンによる予防が始まりました。日本では蘭学が西洋医学を伝えます。",
-  ev:[["1700","ラマッツィーニ『働く人々の病気』。産業医学の父"],["1774","杉田玄白ら『解体新書』"],["1796","ジェンナーが種痘（天然痘のワクチン）を始める"]], src:"Bernardino_Ramazzini"},
- {y:"19世紀前半", t:"麻酔と衛生", c:"#9A6A8A",
-  s:"痛みのない手術と、手洗いや統計による衛生改善が、医療を一変させました。",
-  ev:[["1804","華岡青洲が全身麻酔で乳がん手術"],["1846","モートンがエーテル麻酔を公開"],["1847","ゼンメルワイスが手洗いで産褥熱を減らす"],["1850年代","ナイチンゲールが看護と統計で病院を改革"]], src:"History_of_anesthesia"},
- {y:"1860–1900", t:"細菌学の時代", c:"#4F8A7A",
-  s:"病気の原因が微生物だとわかり、消毒・ワクチン・血清療法が生まれます。日本人研究者も大きく貢献しました。",
-  ev:[["1867","リスターが消毒法を発表"],["1882","コッホが結核菌を発見"],["1890","北里柴三郎が血清療法を確立"],["1895","レントゲンがX線を発見"],["1897","志賀潔が赤痢菌を発見"]], src:"Germ_theory_of_disease"},
- {y:"1900–1945", t:"薬の時代の始まり", c:"#B5703A",
-  s:"化学合成の薬、ホルモン、抗生物質が登場し、治せる病気が一気に増えました。",
-  ev:[["1910","秦佐八郎とエールリッヒが梅毒の治療薬サルバルサン"],["1922","インスリンによる糖尿病治療が始まる"],["1928","フレミングがペニシリンを発見（実用化は1940年代）"]], src:"Penicillin"},
- {y:"1945–1990", t:"戦後：制度と検査の発展", c:"#3E6C8F",
-  s:"国際保健と国民皆保険が整い、内視鏡やCTなど画像検査が普及しました。",
-  ev:[["1948","世界保健機関（WHO）設立"],["1950","日本で胃カメラが開発される"],["1953","DNAの二重らせん構造の発見"],["1955","ポリオワクチンの実用化"],["1961","日本で国民皆保険が実現"],["1971","CTスキャンの臨床使用が始まる"]], src:"World_Health_Organization"},
- {y:"1990–2015", t:"遺伝子と再生医療", c:"#6A5A9A",
-  s:"ヒトの遺伝情報が読み解かれ、細胞から組織をつくる再生医療が現実になります。",
-  ev:[["2003","ヒトゲノムの解読完了"],["2006","山中伸弥がiPS細胞を作製（ヒトは2007年）"],["2014","iPS細胞から作った網膜の細胞を移植。免疫チェックポイント阻害薬オプジーボが承認"]], src:"Induced_pluripotent_stem_cell"},
- {y:"2015–", t:"個別化医療とデジタル", c:"#1F8A8A",
-  s:"遺伝子に合わせたがん治療、mRNAワクチン、AIやオンライン診療。医療は「一人ひとりに合わせる」方向へ進んでいます。",
-  ev:[["2019","がん遺伝子パネル検査とCAR-T細胞療法が保険適用"],["2020","mRNAワクチンが実用化（日本では2021年に接種開始）"],["2023","電子処方箋の運用開始"],["2024","健康保険証の新規発行が終わり、マイナ保険証が基本に"]], src:"Personalized_medicine"}
-];
-$("#eras").innerHTML = ERAS.map((e, i) => `
- <article class="era mv" style="--mc:${e.c}" id="h-${i}">
-  <div class="swatch"><div class="years">${e.y}</div><div class="cloth"></div></div>
-  <div class="era-body">
-   <h3>${e.t}</h3><p class="sum">${e.s}</p>
-   <div class="tbl-wrap"><table class="tbl events">${table(["年","出来事"], e.ev.map(v => [`<span class="latin">${v[0]}</span>`, v[1]]))}</table></div>
-   <p class="caption">出典：${src(e.src)}</p>
-  </div>
- </article>`).join("");
-$("#jpSystem").innerHTML = table(["年","できごと","意味"], [
- ["1874","「医制」公布","近代的な医療・衛生行政の始まり"],
- ["1922","健康保険法（1927年に給付開始）","労働者のための公的医療保険"],
- ["1938","国民健康保険法。厚生省の設置","農村などへ保険を広げる"],
- ["1961","国民皆保険","すべての国民がいずれかの公的医療保険に加入"],
- ["1973","老人医療費の無料化","高齢者の自己負担をゼロに（1983年に一部負担へ）"],
- ["2000","介護保険制度","介護を社会全体で支える"],
- ["2008","後期高齢者医療制度、特定健診（メタボ健診）","75歳以上の独立した制度と、40〜74歳の生活習慣病予防"],
- ["2022","75歳以上の一定以上所得者は2割負担","世代間の負担の見直し"],
- ["2024","健康保険証の新規発行終了","マイナ保険証が基本に（従来の保険証は2025年12月1日までの経過措置）"]
-].map(r => [`<span class="latin">${r[0]}</span>`, `<b>${r[1]}</b>`, r[2]]));
 
 /* ===== 特殊健診 ===== */
 $("#vsTable").innerHTML = table(["", "一般健康診断", "特殊健康診断"], [
@@ -334,93 +226,6 @@ $("#ruleCards").innerHTML = RULES.map(r => `
   <div class="bk-links">${r.egov ? `<a href="${EGOV(r.egov)}" target="_blank" rel="noopener">条文（e-Gov） ↗</a>` : ""}<a href="${r.src}" target="_blank" rel="noopener">解説資料 ↗</a></div>
  </article>`).join("");
 
-/* ===== 最新技術 ===== */
-$("#techTable").innerHTML = table(["技術","何ができる","日本での状況","出典"], [
- ["ロボット支援手術","小さな傷で精密な手術","2012年に前立腺がんで保険適用、2018年に対象を大きく拡大","Robot-assisted_surgery"],
- ["AIによる診断支援","内視鏡や画像から病変を見つける手助け","2018年に内視鏡AIが医療機器として承認されるなど、承認例が増加","Artificial_intelligence_in_healthcare"],
- ["がんゲノム医療","がんの遺伝子変異を調べ、合う薬を探す","2019年に遺伝子パネル検査が保険適用","Precision_medicine"],
- ["免疫チェックポイント阻害薬","免疫のブレーキを外してがんを攻撃","2014年にオプジーボが承認。2018年に本庶佑がノーベル賞","Checkpoint_inhibitor"],
- ["CAR-T細胞療法","患者の免疫細胞を遺伝子改変して戻す","2019年に保険適用","CAR_T_cell"],
- ["遺伝子治療","病気の原因遺伝子を補う","2020年に脊髄性筋萎縮症の治療薬ゾルゲンスマが保険適用","Gene_therapy"],
- ["mRNAワクチン","設計図を入れて体内で抗原をつくる","2021年に接種開始。2023年にカリコとワイスマンがノーベル賞","MRNA_vaccine"],
- ["iPS細胞・再生医療","細胞から組織をつくって移植","2014年に網膜の細胞移植。臨床研究が進む","Induced_pluripotent_stem_cell"],
- ["新しい慢性疾患の薬","肥満症やアルツハイマー病の進行抑制","2023年にアルツハイマー病のレケンビ、2024年に肥満症のウゴービが保険適用","Lecanemab"],
- ["オンライン診療","ビデオ通話で診察","2018年に保険適用、2022年から初診も恒久的に可能に","Telehealth"],
- ["電子処方箋・マイナ保険証","薬や健診の情報を医療機関で共有","2023年に電子処方箋、2024年12月から保険証の新規発行終了","https://www.mhlw.go.jp/stf/newpage_22682.html"]
-].map(r => [`<b>${r[0]}</b>`, r[1], r[2], src(r[3])]));
-
-/* ===== 薬の知識 ===== */
-$("#drugClass").innerHTML = table(["分類","入手方法","説明する人","例"], [
- ["医療用医薬品","医師の処方箋が必要","薬剤師","病院・診療所で処方される薬"],
- ["要指導医薬品","薬局で、薬剤師の対面での指導のもと購入","薬剤師","医療用から市販薬になって間もない薬など"],
- ["第1類医薬品","薬局・ドラッグストア。薬剤師が書面で説明","薬剤師","一部の解熱鎮痛薬、胃薬など"],
- ["第2類医薬品","薬局・ドラッグストア","薬剤師または登録販売者","多くのかぜ薬、解熱鎮痛薬"],
- ["第3類医薬品","薬局・ドラッグストア","薬剤師または登録販売者","ビタミン剤、整腸薬など"]
-].map(r => [`<b>${r[0]}</b>`, r[1], r[2], r[3]]));
-$("#generic").innerHTML = table(["用語","意味"], [
- ["先発医薬品","最初に開発・承認された薬。特許期間中は独占的に販売"],
- ["後発医薬品（ジェネリック）","特許が切れた後に、同じ有効成分でつくられる薬。価格が安い"],
- ["バイオシミラー","バイオ医薬品の後続品。完全に同じではないが同等・同質と確認されたもの"],
- ["長期収載品","後発品が出た後も販売されている先発品"],
- ["選定療養（2024年10月〜）","後発品があるのに患者の希望で長期収載品を選ぶと、価格差の4分の1を追加で負担（医療上の必要がある場合などは対象外）"],
- ["使用目標","後発品の数量シェアを2029年度末までに全都道府県で80%以上（2023年は80.2%）"],
- ["薬価","国が決める薬の公定価格。2年に1度の改定に加え、2021年度から間の年にも改定"],
- ["医薬品副作用被害救済制度","正しく使ったのに重い副作用が出た場合に、医療費などを給付（PMDAが運営）"]
-].map(r => [`<b>${r[0]}</b>`, r[1]]));
-$("#interact").innerHTML = table(["組み合わせ","起こりうること"], [
- ["グレープフルーツジュース × 一部の降圧薬（カルシウム拮抗薬）など","薬が分解されにくくなり、効き目が強く出ることがある"],
- ["納豆・青汁など（ビタミンK） × ワルファリン","血を固まりにくくする効果が弱まる"],
- ["牛乳・カルシウム剤 × 一部の抗菌薬（テトラサイクリン系・ニューキノロン系）","薬の吸収が落ちる"],
- ["アルコール × 睡眠薬・抗不安薬など","眠気やふらつきなどの作用が強まる"],
- ["セイヨウオトギリソウ（サプリメント） × 多くの薬","薬の効果が弱まることがある"]
-].map(r => [`<b>${r[0]}</b>`, r[1]]));
-$("#timing").innerHTML = table(["言葉","いつ飲む"], [
- ["食前","食事のおよそ30分前"],["食直前","食事のすぐ前"],["食後","食事のおよそ30分後まで"],["食間","食事と食事の間（食後およそ2時間）。食事中ではない"],["就寝前","寝るおよそ30分前"],["頓服","症状が出たときに"]
-].map(r => [`<b>${r[0]}</b>`, r[1]]));
-
-/* ===== 医療費 ===== */
-$("#stats").innerHTML = [["48.1兆円","国民医療費（2023年度）","過去最高"],["38.7万円","国民1人当たり","2023年度"],["+3.0%","前年度比","2022年度は46.7兆円"]]
- .map(s => `<div class="stat"><b>${s[0]}</b><span>${s[1]}</span><small>${s[2]}</small></div>`).join("") +
- `<p class="caption" style="grid-column:1/-1">出典：${src("https://www.mhlw.go.jp/toukei/saikin/hw/k-iryohi/23/","厚生労働省「令和5(2023)年度 国民医療費の概況」")}</p>`;
-const COST = [[2000,30.1],[2005,33.1],[2010,37.4],[2015,42.4],[2019,44.4],[2020,43.0],[2021,45.0],[2022,46.7],[2023,48.1]];
-(function costChart(){
-  const Wd = 900, H = 300, L = 50, R = 20, T = 30, B = 40, max = 50;
-  const bw = (Wd - L - R) / COST.length;
-  const y = v => T + (1 - v / max) * (H - T - B);
-  let g = "";
-  [0,10,20,30,40,50].forEach(v => g += `<line x1="${L}" y1="${y(v)}" x2="${Wd-R}" y2="${y(v)}" stroke="var(--hair)"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" class="ax">${v}</text>`);
-  g += `<text x="${L}" y="14" class="lg">兆円</text>`;
-  COST.forEach((c, i) => {
-    const x = L + i * bw + bw * 0.22, w = bw * 0.56, last = i === COST.length - 1;
-    g += `<rect class="hit" x="${x}" y="${y(c[1])}" width="${w}" height="${y(0) - y(c[1])}" rx="4" fill="${last ? "var(--ox)" : "color-mix(in srgb,var(--ox) 40%,#fff)"}" data-tip="<b>${c[0]}年度</b><br>${c[1]}兆円"/>
-      <text x="${x + w/2}" y="${H-16}" text-anchor="middle" class="ax">${c[0]}</text>`;
-    if (last || i === 0) g += `<text x="${x + w/2}" y="${y(c[1]) - 8}" text-anchor="middle" class="rl">${c[1]}</text>`;
-  });
-  $("#costChart").setAttribute("viewBox", `0 0 ${Wd} ${H}`);
-  $("#costChart").innerHTML = g;
-})();
-$("#share").innerHTML = table(["年齢","窓口で払う割合"], [
- ["小学校入学前","2割"],["小学生〜69歳","3割"],["70〜74歳","2割（現役並み所得者は3割）"],["75歳以上","1割（一定以上の所得者は2割、現役並み所得者は3割）"]
-].map(r => [`<b>${r[0]}</b>`, r[1]]));
-$("#hcost").innerHTML = `
- <div class="hc-bar"><span class="hc-all" style="width:100%">医療費 100万円</span></div>
- <div class="hc-bar"><span class="hc-3" style="width:30%">窓口 3割 = 30万円</span><span class="hc-ins" style="width:70%">保険から 70万円</span></div>
- <div class="hc-bar"><span class="hc-cap" style="width:9.3%">上限 約9.3万円</span><span class="hc-back" style="width:20.7%">払い戻し 約20.7万円</span><span class="hc-ins" style="width:70%">保険から</span></div>
- <p class="caption">例：70歳未満・年収約370万〜510万円の人が、1か月に医療費100万円の治療を受けた場合（2026年8月からの制度での厚生労働省の例示）。限度額適用認定証やマイナ保険証を使えば、窓口の支払いがはじめから上限までになります。</p>`;
-$("#hcostTimeline").innerHTML = table(["時期","内容","出典"], [
- ["2026年8月","月ごとの上限額を引き上げ。年間の上限額を新設（年間上限に達した後は支払い不要）。多数回該当の仕組みは維持",src("https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/newpage_00014.html","厚労省")],
- ["2027年8月（予定）","所得区分を細かく分ける見直し",src("https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html","厚労省")]
-].map(r => [`<b>${r[0]}</b>`, r[1], r[2]]));
-$("#systems").innerHTML = table(["制度","内容"], [
- ["高額療養費","1か月の自己負担が上限を超えた分を払い戻し。申請は加入する保険者へ（診療月の翌月1日から2年で時効）"],
- ["多数回該当","直近12か月で3回以上高額療養費の対象になると、4回目から上限が下がる"],
- ["医療費控除","年間の医療費が10万円（所得200万円未満は所得の5%）を超えた分を所得から控除"],
- ["セルフメディケーション税制","対象の市販薬が年1万2千円を超えた分を控除（上限8万8千円）。医療費控除とは選択"],
- ["傷病手当金","病気やけがで働けないとき、健康保険から給料のおよそ3分の2を通算1年6か月まで"],
- ["出産育児一時金","1児につき50万円（2023年4月〜）"],
- ["保険外併用療養","先進医療や選定療養など、保険診療と自費を組み合わせられる仕組み"]
-].map(r => [`<b>${r[0]}</b>`, r[1]]));
-
 /* ===== 用語集 ===== */
 const GLOSS = [
  ["特殊健康診断","Special health examination","有害業務に従事する労働者に、業務特有の健康障害を早く見つけるために行う法定の健診"],
@@ -434,13 +239,7 @@ const GLOSS = [
  ["事後措置","Follow-up measures","健診結果に基づき、医師の意見を聴いて行う作業転換や労働時間短縮など"],
  ["健康管理手帳","Health management notebook","がんなどの重い障害を起こすおそれのある業務に従事した人が、離職後も国の費用で健診を受けられる手帳"],
  ["自律的管理","Self-directed chemical management","国が個別に規制するのではなく、事業者がリスクアセスメントに基づき化学物質を管理する考え方"],
- ["等価騒音レベル","Equivalent continuous sound level","変動する騒音を、同じエネルギーをもつ一定の騒音に置き換えた値（dB）"],
- ["四体液説","Humorism","血液・粘液・黄胆汁・黒胆汁のバランスで健康を説明した古代の医学説"],
- ["国民皆保険","Universal health coverage","すべての国民が公的医療保険に加入する仕組み。日本は1961年に実現"],
- ["後発医薬品","Generic drug","特許切れの先発品と同じ有効成分の安価な薬"],
- ["薬価","Drug price","国が定める医療用医薬品の公定価格"],
- ["高額療養費","High-cost medical expense benefit","1か月の自己負担が上限を超えた分が戻る制度"],
- ["保険者","Insurer","健康保険組合、協会けんぽ、市町村（国保）など、保険を運営する団体"]
+ ["等価騒音レベル","Equivalent continuous sound level","変動する騒音を、同じエネルギーをもつ一定の騒音に置き換えた値（dB）"]
 ];
 function renderGloss(q){
   q = (q || "").trim().toLowerCase();
@@ -472,7 +271,7 @@ document.querySelector("nav.tabs").addEventListener("click", e => {
   const h = location.hash.slice(1);
   let start = document.getElementById(h) && document.getElementById(h).hasAttribute("data-panel") ? h : null;
   if (!start) { try { start = localStorage.getItem("iryo-tab"); } catch(_) {} }
-  showTab(start && document.getElementById(start) ? start : "history");
+  showTab(start && document.getElementById(start) ? start : "tokushu");
 }
 </script>
 </body>
