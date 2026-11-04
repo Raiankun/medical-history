@@ -21,6 +21,7 @@
 <nav class="tabs" aria-label="セクション">
   <div class="wrap" role="tablist">
     <button role="tab" data-tab="tokushu" aria-selected="true">特殊健診</button>
+    <button role="tab" data-tab="tokutei" aria-selected="false">特定業務健診</button>
     <button role="tab" data-tab="rules" aria-selected="false">規則と条文</button>
     <button role="tab" data-tab="glossary" aria-selected="false">用語集</button>
   </div>
@@ -67,6 +68,40 @@
   </section>
 
   <!-- 規則と条文 -->
+  <section id="tokutei" data-panel hidden>
+    <span class="kicker">Health Exams for Specified Work</span>
+    <h2>特定業務従事者健診（安衛則第45条）</h2>
+    <p class="lead">深夜業や暑熱な場所での業務など、安衛則第13条に定める「特定業務」に常時従事する人に、6か月以内ごとに1回行う定期健康診断です。「常時」の定義はありません。</p>
+    <div class="stats">
+      <div class="stat"><b>6か月</b><span>実施の間隔</span><small>配置替えの際と、その後6か月以内ごとに1回</small></div>
+      <div class="stat"><b>14</b><span>特定業務の数</span><small>安衛則第13条第1項第3号イ〜カ</small></div>
+      <div class="stat"><b>年2回</b><span>うち1回は省略できる項目がある</span><small>下の「健診項目」の表を参照</small></div>
+    </div>
+    <div class="tk-note">
+      <b>資料が挙げる注意点</b>
+      <ol>
+        <li>該当する作業や健診の対象がわからない場合は、所轄の労働基準監督署に問い合わせる。</li>
+        <li>業務の内容は、通達が出た昭和23年当時（労働安全衛生法の制定前）の有害作業の実態を反映していると思われ、今の有害性の認識（今はもっと厳しい）とずれている可能性がある。</li>
+      </ol>
+    </div>
+
+    <h3 class="sub">健診項目：年2回のうち、どれを省略できるか</h3>
+    <p class="caption" style="margin:-8px 0 16px">一般的には、年2回のうち1回は全項目を行い、もう1回は省略できない項目だけを行います。</p>
+    <div class="tbl-wrap"><table class="tbl tk-items" id="tkItems"></table></div>
+    <p class="tk-legend" id="tkLegend"></p>
+    <ul class="tk-rules">
+      <li>6か月以内に受けた特殊健康診断と同じ検査項目は、省略できます。</li>
+      <li>特定業務健診には、一般健診（安衛則第44条第2項）の省略規定にある「厚生労働大臣が定める基準」はありません。</li>
+    </ul>
+
+    <h3 class="sub">特定業務の一覧と、業務の解説</h3>
+    <p class="caption" style="margin:-8px 0 16px">解説は昭和23年の通達の概略です。〈 〉の中は、通達には書かれていないが資料が参考として挙げているものです。すべての業務で一般健診の項目を行い、「特殊健診の項目」の欄に記載のある業務では、それも加わります。</p>
+    <div class="filter" id="tkFilter"></div>
+    <div class="tbl-wrap"><table class="tbl tk-works" id="tkWorks"></table></div>
+
+    <div class="tk-source" id="tkSource"></div>
+  </section>
+
   <section id="rules" data-panel hidden>
     <span class="kicker">Laws & Regulations</span>
     <h2>規則と条文を読む</h2>
@@ -91,6 +126,7 @@
 <div class="tip" id="tip" role="tooltip" hidden></div>
 
 <script src="data/medicine-exams.js"></script>
+<script src="data/tokutei.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => s.replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
@@ -189,6 +225,21 @@ const WHY = [
 ];
 $("#whyFew").innerHTML = WHY.map((w, i) => `<article class="card"><span class="num">${i+1}</span><h4>${w[0]}</h4><p>${w[1]}</p></article>`).join("") +
  `<p class="caption" style="grid-column:1/-1">確認した事実の出典：${src("https://okayamas.johas.go.jp/column-no3/","岡山産業保健総合支援センター")} ${src(EGOV("347M50002000032"),"安衛則（e-Gov）")}</p>`;
+
+/* ===== 特定業務健診 ===== */
+(function(){
+  const mk = k => `<span class="tk-mark tk-${k}" title="${TK_MARK[k][1]}">${TK_MARK[k][0]}</span>`;
+  $("#tkItems").innerHTML = table(["健診項目","一般健診と同時期に行う回","特定業務健診だけを行う回"], TK_ITEMS.map(r => [`<b>${r[0]}</b>`, mk(r[1]), mk(r[2])]));
+  $("#tkLegend").innerHTML = Object.entries(TK_MARK).map(([k, v]) => `${mk(k)} ${v[1]}`).join("　");
+  const render = f => {
+    $("#tkFilter").innerHTML = [["","すべて"],["s","特殊健診の項目が加わる業務"],["g","一般健診の項目のみの業務"]].map(([k, t]) => `<button class="chip" data-f="${k}" aria-pressed="${f === k}">${t}</button>`).join("");
+    $("#tkWorks").innerHTML = table(["号","特定業務（安衛則第13条）","業務の解説（昭和23年通達の概略）","特殊健診の項目"], TK_WORKS.filter(w => !f || (f === "s" ? w[4] : !w[4])).map(w => [
+      `<span class="num">${w[0]}</span><small>${w[1]}</small>`, `<b>${w[2]}</b>`, w[3].replace(/〈/g, '<span class="tk-ref">〈').replace(/〉/g, '〉</span>'), w[4] ? `<span class="chk ok">${w[4]}</span>` : `<small>一般健診の項目のみ</small>`]));
+  };
+  $("#tkFilter").addEventListener("click", e => { const b = e.target.closest(".chip"); if (b) render(b.dataset.f); });
+  render("");
+  $("#tkSource").innerHTML = `<b>出典</b><p>このタブの業務の解説、特殊健診の項目の扱い、健診項目の表は、<a href="${TK_SOURCE.url}" target="_blank" rel="noopener">${TK_SOURCE.name} ↗</a>（独立行政法人 労働者健康安全機構）の内容を整理して掲載しています。条文の正確な文言は <a href="https://laws.e-gov.go.jp/law/347M50002000032" target="_blank" rel="noopener">e-Gov の労働安全衛生規則 ↗</a> で確認してください。</p>`;
+})();
 
 /* ===== 規則と条文 ===== */
 $("#hier").innerHTML = [["法律","労働安全衛生法（安衛法）／じん肺法","国会が定める"],["政令","労働安全衛生法施行令（安衛令）","内閣が定める。特殊健診の対象業務は安衛令第22条"],["省令","労働安全衛生規則（安衛則）と特別規則（有機則・特化則・鉛則・電離則・石綿則・粉じん則など）","厚生労働大臣が定める"],["指針・通達","騒音障害防止のためのガイドライン、判断基準の通達など","法令ではないが、行政の指導の基準"]]
