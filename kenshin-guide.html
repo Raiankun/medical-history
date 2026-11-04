@@ -278,6 +278,7 @@ document.querySelectorAll("[data-rule]").forEach(el => {
      ["あゆみ", e.hist.map(h => `<span class="latin">${h[0]}</span> ${h[1]}`).join("<br>")]
    ].map(r => [`<b>${r[0]}</b>`, r[1]]))}</table></div>
    <ul class="note-list">${e.notes.map(s => `<li>${s}</li>`).join("")}</ul>
+   ${e.omit ? omitBlock(e.omit) : ""}
    <a class="more-btn" href="exam.html?id=${e.id}">${e.name}の専用ページ（図解つき） →</a>`;
 });
 

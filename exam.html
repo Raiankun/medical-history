@@ -88,6 +88,8 @@ $("#page").innerHTML = `
  <h2 class="dp-h">押さえておきたい点</h2>
  <ol class="points">${e.notes.map(s => `<li>${s}</li>`).join("")}</ol>
 
+ ${e.omit ? omitBlock(e.omit) : ""}
+
  <h2 class="dp-h">根拠となる条文</h2>
  <div class="tbl-wrap"><table class="tbl">${table(["条文","内容"], e.arts.map(a => [`<b>${a[0]}</b>`, a[1]]))}</table></div>
  ${e.egov ? `<div class="bk-links big"><a href="https://laws.e-gov.go.jp/law/${e.egov}" target="_blank" rel="noopener">条文を読む（e-Gov 法令検索） ↗</a></div>` : ""}
